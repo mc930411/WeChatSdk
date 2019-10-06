@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="games">
+        <item>王者荣耀 com.tencent.tmgp.sgame</item>
+        <item>全民超神 com.tencent.tmgp.gods</item>
+        <item>全民突击 com.tencent.WeFire</item>
+        <item>天天酷跑 com.tencent.pao</item>
+        <!--<item>穿越火线 com.tencent.qt.sns</item>-->
+        <!--<item>恋舞OL com.ddianle.lovedance.ddl</item>-->
+        <!--<item>开心消消乐 com.happyelements.AndroidAnimal.qq</item>-->
+        <!--<item>贪吃蛇大作战 com.wepie.snake</item>-->
+        <item>愤怒的小鸟 com.rovio.angrybirds</item>
+        <!--<item>保卫萝卜3 com.tencent.tmgp.carrot3</item>-->
+        <!--<item>我的汤姆猫 com.outfit7.mytalkingtomfree.m4399</item>-->
+        <!--<item>小冰冰传奇 sh.lilith.dgame.lemon</item>-->
+        <!--<item>部落冲突 com.supercell.clashofclans.kunlun</item>-->
+        <!--<item>水果忍者 com.halfbrick.fruitninja</item>-->
+        <!--<item>火影忍者 com.tencent.KiHan</item>-->
+        <!--<item>植物大战僵尸 com.popcap.pvz2cthdbddk</item>-->
+
+        <!--<item>穿越火线 com.tencent.tmgp.cf</item>-->
+        <!--<item>恋舞OL com.ddianle.lovedance.ddl</item>-->
+        <!--<item>开心消消乐 com.happyelements.AndroidAnimal.qq</item>-->
+        <!--<item>王者荣耀 com.tencent.tmgp.sgame</item>-->
+        <!--<item>贪吃蛇大作战 com.wepie.snake</item>-->
+        <!--<item>愤怒的小鸟 com.rovio.angrybirds</item>-->
+        <!--<item>保卫萝卜3 com.tencent.tmgp.carrot3</item>-->
+        <!--<item>我的汤姆猫 com.outfit7.mytalkingtomfree.m4399</item>-->
+        <!--<item>小冰冰传奇 sh.lilith.dgame.lemon</item>-->
+        <!--<item>部落冲突 com.supercell.clashofclans.kunlun</item>-->
+
+        <!--<item>消灭星星 com.brianbaek.popstar</item>-->
+        <!--<item>新仙剑奇侠传百度 com.cmge.xianjian.baidu</item>-->
+        <!--<item>犬夜叉百度  com.heitao.qyckp.baidu</item>-->
+        <!--<item>刀塔传奇百度 sh.lilith.dgame.DK</item>-->
+        <!--<item>不良人百度 com.ourpalm.buliangren.baidu</item>-->
+        <!--<item>一笔画 com.ecapycsw.onetouchdrawing</item>-->
+        <!--<item>部落冲突 com.tencent.tmgp.supercell.clashofclans</item>-->
+        <!--<item>皇室战争 com.supercell.clashroyale.uc</item>-->
+        <!--<item>全民超神  com.tencent.tmgp.gods</item>-->
+        <!--<item>滑雪大冒险 com.yodo1.SkiSafari.TXYYB_01</item>-->
+
+    </string-array>
+</resources>
