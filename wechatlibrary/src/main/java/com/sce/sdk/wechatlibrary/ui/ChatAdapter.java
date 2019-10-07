@@ -9,6 +9,7 @@ import static com.sce.sdk.wechatlibrary.config.MessageConfig.USER_SENT;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,10 +20,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.sce.sdk.wechatlibrary.R;
+import com.sce.sdk.wechatlibrary.config.MessageConfig;
 import com.sce.sdk.wechatlibrary.data.MessageInfo;
+import com.sce.sdk.wechatlibrary.utils.UtilsTool;
 import java.util.List;
 
+/**
+ * @author yuant
+ */
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+  private static final String TAG  = "ChatAdaptor";
+
   private Context mContext;
   public List<MessageInfo> chatMessages;
   private OnRecyclerViewItemLongClick mOnRecyclerViewItemLongClick;
@@ -91,6 +100,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
   }
 
   private void setSentData(HolderChatSend holderChatSend, int type, Object data) {
+    String dataType = UtilsTool.getType(data);
     switch (type) {
       case MESSAGE_TEXT:
         String msg = data.toString();
@@ -113,17 +123,32 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     if(type != MESSAGE_SYSTEMINFO && userId != null) {
       holderChatReceive.tvNickName.setText(userId);
     }
+    String dataType = UtilsTool.getType(data);
     switch (type) {
       case MESSAGE_TEXT:
-        String msg = data.toString();
+        String msg = MessageConfig.DATA_TYPE_ERROR;
+        if(dataType.contains(MessageConfig.TYPR_STRING)) {
+          msg = data.toString();
+        } else {
+          Log.e(TAG, "Text MessageType error");
+        }
         holderChatReceive.tvMsgContent.setText(msg);
         break;
       case MESSAGE_IMAGE:
-        Uri uri = (Uri)data;
-        holderChatReceive.tvMsgImage.setImageURI(uri);
+        if(dataType.contains(MessageConfig.TYPE_URI)) {
+          Uri uri = (Uri)data;
+          holderChatReceive.tvMsgImage.setImageURI(uri);
+        } else {
+          Log.e(TAG, "Image MessageType error");
+        }
         break;
       case MESSAGE_SYSTEMINFO:
-        String info = data.toString();
+        String info = MessageConfig.DATA_TYPE_ERROR;
+        if(dataType.contains(MessageConfig.TYPR_STRING)) {
+          info = data.toString();
+        } else {
+          Log.e(TAG, "SystemInfo MessageType error");
+        }
         holderChatReceive.tvSystemInfo.setText(info);
         break;
       default:

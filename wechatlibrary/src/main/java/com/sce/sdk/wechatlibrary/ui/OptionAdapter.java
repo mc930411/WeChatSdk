@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import com.sce.sdk.wechatlibrary.R;
 import java.util.List;
 
+/**
+ * @author yuant
+ */
 public class OptionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
   List<String> optionEntities;

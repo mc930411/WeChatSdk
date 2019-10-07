@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.sce.sdk.wechatlibrary.WeChatManager;
 import com.sce.sdk.wechatlibrary.config.MessageConfig;
 import com.sce.sdk.wechatlibrary.data.MessageInfo;
+import com.sce.sdk.wechatlibrary.utils.UtilsTool;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     list.add(new MessageInfo(MessageConfig.MESSAGE_TEXT, MessageConfig.USER_RECV, "我发送了消息2", "Amy"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_TEXT, MessageConfig.USER_SENT, "我发送了消息3", "Admin"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_TEXT, MessageConfig.USER_SENT, "我发送了消息4", "Admin"));
+    list.add(new MessageInfo(MessageConfig.MESSAGE_IMAGE, MessageConfig.USER_RECV, "我发送了消息4", "Admin"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_SYSTEMINFO, MessageConfig.USER_SENT, "我发送了消息5", "Admin"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_TEXT, MessageConfig.USER_RECV, "我发送了消息6", "Mary"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_SYSTEMINFO, MessageConfig.USER_RECV, "我发送了消息7", "Jeana"));
@@ -77,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       if (resultData != null) {
         uri = resultData.getData();
         Log.i(TAG, "Uri: " + uri.toString());
+        Log.i(TAG, "数据类型: " + UtilsTool.getType(uri));
+
         list.add(new MessageInfo(MessageConfig.MESSAGE_IMAGE, MessageConfig.USER_SENT, uri, "Admin"));
       }
     }

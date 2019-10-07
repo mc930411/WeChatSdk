@@ -1,5 +1,8 @@
 package com.sce.sdk.wechatlibrary.config;
 
+/**
+ * @author yuant
+ */
 public class OptionConfig {
   public static final String OPTION_COPY = "复制";
   public static final String OPTION_SHARE = "发送给朋友";

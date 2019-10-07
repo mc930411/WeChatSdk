@@ -8,6 +8,9 @@ import com.sce.sdk.wechatlibrary.ui.ChatAdapter;
 import com.sce.sdk.wechatlibrary.ui.WeChatActivity;
 import java.util.List;
 
+/**
+ * @author yuant
+ */
 public class WeChatManager {
 
   public static final String VERSION = "1.0.0";

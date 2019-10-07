@@ -1,5 +1,8 @@
 package com.sce.sdk.wechatlibrary.data;
 
+/**
+ * @author yuant
+ */
 public class MessageInfo {
 
   public static final String TAG = "MessageInfo";

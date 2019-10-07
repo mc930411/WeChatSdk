@@ -21,6 +21,9 @@ import com.sce.sdk.wechatlibrary.ui.OptionAdapter.OnRecyclerViewItemClick;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author yuant
+ */
 public class WeChatActivity extends Activity {
 
   private static final String TAG = "WeChatAvtivity";
