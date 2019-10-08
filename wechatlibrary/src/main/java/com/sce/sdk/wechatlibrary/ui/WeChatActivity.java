@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.sce.sdk.wechatlibrary.R;
 import com.sce.sdk.wechatlibrary.WeChatManager;
-import com.sce.sdk.wechatlibrary.config.OptionConfig;
 import com.sce.sdk.wechatlibrary.data.MessageInfo;
 import com.sce.sdk.wechatlibrary.ui.ChatAdapter.OnRecyclerViewItemLongClick;
 import com.sce.sdk.wechatlibrary.ui.OptionAdapter.OnRecyclerViewItemClick;
@@ -78,13 +77,13 @@ public class WeChatActivity extends Activity {
 
   private void initPopMenu(final View selectedView, final int chatPosition) {
     final List<String> optionEntities = new ArrayList<>();
-    optionEntities.add(OptionConfig.OPTION_COPY);
-    optionEntities.add(OptionConfig.OPTION_SHARE);
-    optionEntities.add(OptionConfig.OPTION_COLLECT);
-    optionEntities.add(OptionConfig.OPTION_REMIND);
-    optionEntities.add(OptionConfig.OPTION_TRANSLATE);
-    optionEntities.add(OptionConfig.OPTION_DELETE);
-    optionEntities.add(OptionConfig.OPTION_FORMORE);
+    optionEntities.add(getResources().getString(R.string.option_copy));
+    optionEntities.add(getResources().getString(R.string.option_share));
+    optionEntities.add(getResources().getString(R.string.option_collect));
+    optionEntities.add(getResources().getString(R.string.option_remind));
+    optionEntities.add(getResources().getString(R.string.option_translate));
+    optionEntities.add(getResources().getString(R.string.option_delete));
+    optionEntities.add(getResources().getString(R.string.option_formore));
 
     if(mPopMenu == null) {
       mPopMenu = View.inflate(this, R.layout.menu_option, null);

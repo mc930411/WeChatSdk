@@ -103,15 +103,29 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     String dataType = UtilsTool.getType(data);
     switch (type) {
       case MESSAGE_TEXT:
-        String msg = data.toString();
+        String msg = mContext.getResources().getString(R.string.data_type_error);
+        if(dataType.contains(MessageConfig.TYPR_STRING)) {
+          msg = data.toString();
+        } else {
+          Log.e(TAG, "Text MessageType error");
+        }
         holderChatSend.tvMsgContent.setText(msg);
         break;
       case MESSAGE_IMAGE:
-        Uri uri = (Uri)data;
-        holderChatSend.tvMsgImage.setImageURI(uri);
+        if(dataType.contains(MessageConfig.TYPE_URI)) {
+          Uri uri = (Uri)data;
+          holderChatSend.tvMsgImage.setImageURI(uri);
+        } else {
+          Log.e(TAG, "Image MessageType error");
+        }
         break;
       case MESSAGE_SYSTEMINFO:
-        String sysInfo = data.toString();
+        String sysInfo = mContext.getResources().getString(R.string.data_type_error);
+        if(dataType.contains(MessageConfig.TYPR_STRING)) {
+          sysInfo = data.toString();
+        } else {
+          Log.e(TAG, "SystemInfo MessageType error");
+        }
         holderChatSend.tvSystemInfo.setText(sysInfo);
         break;
       default:
@@ -126,7 +140,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     String dataType = UtilsTool.getType(data);
     switch (type) {
       case MESSAGE_TEXT:
-        String msg = MessageConfig.DATA_TYPE_ERROR;
+        String msg = mContext.getResources().getString(R.string.data_type_error);
         if(dataType.contains(MessageConfig.TYPR_STRING)) {
           msg = data.toString();
         } else {
@@ -143,7 +157,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
         break;
       case MESSAGE_SYSTEMINFO:
-        String info = MessageConfig.DATA_TYPE_ERROR;
+        String info = mContext.getResources().getString(R.string.data_type_error);
         if(dataType.contains(MessageConfig.TYPR_STRING)) {
           info = data.toString();
         } else {

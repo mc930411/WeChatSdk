@@ -21,7 +21,7 @@ public class MessageConfig {
   public static final String TYPE_URI = "Uri";
 
   /**  异常提示 **/
-  public static final String DATA_TYPE_ERROR = "[消息类型设置错误]";
+  public static final String DATA_TYPE_ERROR = "[messgage type error]";
   public static final int IMAGE_TYPE_ERROR = R.drawable.disable;
 
 }

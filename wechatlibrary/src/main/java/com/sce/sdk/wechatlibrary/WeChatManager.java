@@ -6,6 +6,7 @@ import android.util.Log;
 import com.sce.sdk.wechatlibrary.data.MessageInfo;
 import com.sce.sdk.wechatlibrary.ui.ChatAdapter;
 import com.sce.sdk.wechatlibrary.ui.WeChatActivity;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +25,7 @@ public class WeChatManager {
 
   private WeChatManager(Context context) {
     this.mContext = context;
+    this.mChatMessageQueue = new ArrayList<>();
   }
 
   public static WeChatManager get() {
@@ -45,44 +47,51 @@ public class WeChatManager {
     weChatInstance = weChatManager;
   }
 
-  public static int setMessageQueue(List<MessageInfo> queue) {
-    weChatInstance.mChatMessageQueue = queue;
+  public int setMessageQueue(List<MessageInfo> queue) {
     if(queue == null) {
       Log.e(TAG, "MessageQueue must not be NULL");
       return -1;
     }
+    this.mChatMessageQueue = queue;
     return 0;
   }
 
-  public static void start() {
-    weChatInstance.startApply();
+  public int addMessage(MessageInfo msg) {
+    if(msg == null){
+      Log.e(TAG, "Message input must not be NULL");
+      return -1;
+    }
+    this.mChatMessageQueue.add(msg);
+    return 0;
   }
 
-  private void startApply() {
+
+
+  public void startApply() {
     Intent intent = new Intent(this.mContext, WeChatActivity.class);
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
     mContext.startActivity(intent);
   }
 
-  public static int notifyItem(int position) {
-    if(weChatInstance.mChatMessageQueue == null) {
+  public int notifyItem(int position) {
+    if(this.mChatMessageQueue == null) {
       Log.e(TAG, "There is no MessageQueue, Please use method : setMessageQueue()");
       return -1;
     }
-    if(weChatInstance.mChatMessageQueue.size() - 1 < position) {
+    if(this.mChatMessageQueue.size() - 1 < position) {
       Log.e(TAG, "position is outOfRange, Please check : WeChatManager.get().MessageQueue.size()");
       return -1;
     }
-    weChatInstance.mChatAdapter.notifyItemChanged(position);
+    this.mChatAdapter.notifyItemChanged(position);
     return 0;
   }
 
-  public static int notifyAllItem() {
-    if(weChatInstance.mChatMessageQueue == null) {
+  public int notifyAllItem() {
+    if(this.mChatMessageQueue == null) {
       Log.e(TAG, "There is no MessageQueue, Please use method : setMessageQueue()");
       return -1;
     }
-    weChatInstance.mChatAdapter.notifyDataSetChanged();
+    this.mChatAdapter.notifyDataSetChanged();
     return 0;
   }
 

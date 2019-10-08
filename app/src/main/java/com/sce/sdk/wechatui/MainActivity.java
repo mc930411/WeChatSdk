@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     if(view.getId() == R.id.btnTest) {
 //      Intent intent = new Intent(this, WeChatActivity.class);
 //      startActivity(intent);
-      WeChatManager.start();
+      WeChatManager.get().startApply();
     } else if(view.getId() == R.id.addImage) {
       performFileSearch();
     }
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     list.add(new MessageInfo(MessageConfig.MESSAGE_SYSTEMINFO, MessageConfig.USER_SENT, "我发送了消息5", "Admin"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_TEXT, MessageConfig.USER_RECV, "我发送了消息6", "Mary"));
     list.add(new MessageInfo(MessageConfig.MESSAGE_SYSTEMINFO, MessageConfig.USER_RECV, "我发送了消息7", "Jeana"));
-    WeChatManager.setMessageQueue(list);
+    manager.setMessageQueue(list);
   }
 
   /**
